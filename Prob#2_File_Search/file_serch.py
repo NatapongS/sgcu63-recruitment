@@ -22,8 +22,8 @@ def fileSearch(fileToSearch, filesObject):
                     newPathFound[i] = '/' + key + newPathFound[i]
                 pathFound.extend(newPathFound)
     return pathFound
-
-jsonObject = ''' {
+"""
+#jsonObject = ''' {
     "FolderA": {
     "_files": [ "file1", "file2" ] ,
     "SubfolderC": {
@@ -36,3 +36,45 @@ jsonObject = ''' {
     } 
     '''
 print(fileSearch('file1', jsonObject))
+"""
+
+"""
+jsonObject = ''' {
+    "I" : {
+        "_files" : ["her"] ,
+        "hate" : {
+            "_files" : ["me", "you"] ,
+            "hater" : {
+                "_files" : ["gonna hate hate hate hate hate"]
+            } 
+        } ,
+        "love" : {
+            "_files" : ["you", "adfafdfa", "xx", "xy"]
+        }, 
+        "hate that" :{
+            "_files" : ["weekly cp problems"],
+            "I love" : {
+                
+                "_files" : ["you", "me", "teemo"]
+            }
+        },
+        "Don't want to" : {
+            "_files" : ["DIEEEE", "Sometime I wish I never been born at all"],
+            ", but I can put" : {
+                "_files" : ["on clothes"],
+                "nobody else" : {
+                    "_files" : ["love me", "like you do"],
+                    "aboves" : {
+                        "_files" : ["you", "me", "pizza"]
+                    }
+
+                }
+            }
+        }
+
+    }
+
+}
+'''
+print(fileSearch("you", jsonObject))
+"""
