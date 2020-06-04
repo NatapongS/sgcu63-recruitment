@@ -1,7 +1,10 @@
 import pyderman as pyder
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import urllib
 import time
+import json
+
 def getBaanPage():
     return 'https://rubnongkaomai.com/baan'
 
@@ -58,3 +61,47 @@ allBaan = list(set(allBaan))
 print(len(allBaan))
 for baan in allBaan:
     print(baan)
+    jsonFile = urllib.request.urlopen('https://rubnongkaomai.com/' + baan).read()
+    jsonContent = json.loads(jsonFile)
+    #print(jsonContent['pageContext'])
+    pageContext = jsonContent['pageContext']
+    try:
+        baanTable.append(('บ้าน' + pageContext['nameTH'], pageContext['sloganTH']))
+    except:
+        print("No nameTH or sloganTH")
+    time.sleep(0.1)
+print(baanTable)
+table = open('table.html', 'w')
+tableFile ="""<html>
+                <head>
+                    <style>
+                        table, th, td {
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                        }
+                        th, td {
+                        padding: 5px;
+                        text-align: left;    
+                        }
+                    </style>
+                </head>
+                <body>
+                    <table style = "width:100%%">
+                        <tr>
+                            <th> ชื่อบ้าน </th>
+                            <th> สโลแกน </th>
+                        </tr>
+                        %s
+                    </table>
+                </body>
+            </html>    
+            """
+tableContent = ""
+for baanDetail in baanTable:
+    tableContent += "<tr>"
+    tableContent += "<td>" + baanDetail[0] + "</td>"
+    tableContent += "<td>" + baanDetail[1] + "</td>"
+    tableContent += "</tr>"
+whole = tableFile % tableContent
+table.write(whole)
+table.close()
