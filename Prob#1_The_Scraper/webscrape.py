@@ -104,10 +104,10 @@ tableFile ="""<html>
             """
 tableContent = ""
 for baanDetail in baanTable:
-    tableContent += "<tr>"
-    tableContent += "<td>" + baanDetail[0] + "</td>"
-    tableContent += "<td>" + baanDetail[1].replace('\n', '<br>') + "</td>"
-    tableContent += "</tr>"
+    tableContent += "<tr>\n"
+    tableContent += "<td>" + baanDetail[0] + "</td>\n"
+    tableContent += "<td>" + baanDetail[1].replace('\n', '<br>') + "</td>\n"
+    tableContent += "</tr>\n"
     print( baanDetail[1])
 whole = tableFile % tableContent
 table.write(whole)
