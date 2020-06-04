@@ -106,7 +106,7 @@ tableContent = ""
 for baanDetail in baanTable:
     tableContent += "<tr>"
     tableContent += "<td>" + baanDetail[0] + "</td>"
-    tableContent += "<td>" + baanDetail[1] + "</td>"
+    tableContent += "<td>" + baanDetail[1].replace('\n', '<br>') + "</td>"
     tableContent += "</tr>"
     print( baanDetail[1])
 whole = tableFile % tableContent

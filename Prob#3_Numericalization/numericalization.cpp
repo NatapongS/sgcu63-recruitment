@@ -27,46 +27,36 @@ struct numberString{
 		void drawLine(int position){
 			char num = '0' + numberRef;
 			int x_1, y_1, x_2, y_2; //we will draw from (x_1, y_1) to (x_2, y_2)
-			if(position == 0){
+			if(position == 0 || position == 3 || position == 6){
 				x_1 = 0;
 				x_2 = 5 * width - 1;
+			}
+			else if(position == 1 || position == 4){
+				x_1 = 0;
+				x_2 = width - 1;
+			}
+			else{
+				x_1 = 4 *width;
+				x_2 = 5  * width - 1;
+			}
+			if(position == 0){
 				y_1 = 0;
 				y_2 = height - 1;
 			}
-			else if(position == 1){
-				x_1 = 0;
-				x_2 = width - 1;
-				y_1 = 0;
-				y_2 = (5 * height - 1)/ 2;
-			}
-			else if(position == 2){
-				x_1 = 4 * width;
-				x_2 = 5 * width - 1;
-				y_1 = 0;
-				y_2 = (5 * height - 1)/ 2;
-			}
 			else if(position == 3){
-				x_1 = 0;
-				x_2 = 5 * width - 1;
-				y_1 = 2 * height ;
-				y_2 = 3 * height - 1; 
+				y_1 = 2 * height;
+				y_2 = 3 * height - 1;
 			}
-			else if(position == 4){
-				x_1 = 0;
-				x_2 = width - 1;
-				y_1 = 5 * height / 2;
+			else if(position == 6){
+				y_1 = 4 * height;
 				y_2 = 5 * height - 1;
 			}
-			else if(position == 5){
-				x_1 = 4 * width;
-				x_2 = 5 * width - 1;
-				y_1 = 5 * height / 2;
-				y_2 = 5 * height - 1; 
+			else if(position == 1 || position == 2){
+				y_1 = 0;
+				y_2 = (5 * height - 1) / 2;
 			}
-			else{
-				x_1 = 0;
-				x_2 = 5 * width - 1;
-				y_1 = 4 * height;
+			else {
+				y_1 = 5 * height / 2;
 				y_2 = 5 * height - 1;
 			}
 			for(int i = y_1; i <= y_2; i++){
