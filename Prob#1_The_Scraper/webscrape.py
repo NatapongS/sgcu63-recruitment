@@ -6,7 +6,7 @@ import time
 import json
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
-
+#FINAL VERSION
 #function to scroll the whole page(Thanks to Github)
 def scrollAll(driver):
     html = driver.find_element_by_tag_name('html')
